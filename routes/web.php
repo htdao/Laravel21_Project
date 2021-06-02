@@ -29,4 +29,8 @@ Route::group([
         Route::get('/', 'UserController@index')->name('backend.user.index');
         Route::get('/create', 'UserController@create')->name('backend.user.create');
     });
+    //Quản lý danh mục
+    Route::group(['prefix' => 'categories'], function(){
+        Route::get('/', 'CategoryController@index')->name('backend.categorie.index');
+    });
 });
