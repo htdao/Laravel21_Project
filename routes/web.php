@@ -34,3 +34,10 @@ Route::group([
         Route::get('/', 'CategoryController@index')->name('backend.categorie.index');
     });
 });
+
+Route::group([
+    'namespace' => 'Frontend',
+    'prefix' => 'home'
+], function (){
+    Route::get('/home', 'HomeController@index')->name('backend.home');
+});
