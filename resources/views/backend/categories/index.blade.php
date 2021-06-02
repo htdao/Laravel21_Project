@@ -105,28 +105,16 @@ Categories
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($categories as $cate)
                             <tr>
-                                <td>183</td>
-                                <td>John Doe</td>
-                                <td>11-7-2014</td>
+                                <td>{{$cate->id}}</td>
+                                <td>{{$cate->name}}</td>
+                                <td>{{$cate->updated_at}}</td>
                             </tr>
-                            <tr>
-                                <td>219</td>
-                                <td>Alexander Pierce</td>
-                                <td>11-7-2014</td>
-                            </tr>
-                            <tr>
-                                <td>657</td>
-                                <td>Bob Doe</td>
-                                <td>11-7-2014</td>
-                            </tr>
-                            <tr>
-                                <td>175</td>
-                                <td>Mike Doe</td>
-                                <td>11-7-2014</td>
-                            </tr>
+                            @endforeach
                             </tbody>
                         </table>
+                        <div>{{ $categories->links() }}</div>
                     </div>
                     <!-- /.card-body -->
                 </div>

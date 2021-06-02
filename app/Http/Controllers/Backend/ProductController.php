@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -14,7 +15,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('backend.products.index');
+
+        $products = Product::orderBy('updated_at', 'desc')->paginate(10);
+        return view('backend.products.index', [
+                'products'=>$products
+            ]);
     }
 
     /**
