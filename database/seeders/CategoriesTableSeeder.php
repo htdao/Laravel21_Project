@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class CategoriesTableSeeder extends Seeder
 {
@@ -20,7 +21,9 @@ class CategoriesTableSeeder extends Seeder
         foreach($categories as $value){
             DB::table('categories')->insert([
                 'name' => $value,
-                'slug' => Str::slug($value)
+                'slug' => Str::slug($value),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
     }
