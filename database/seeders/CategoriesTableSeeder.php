@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class CategoriesTableSeeder extends Seeder
 {
@@ -14,12 +15,12 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $categories = ['Điện thoại', 'Máy tính', 'Máy ảnh'];
+        $categories = ['Trang điểm', 'Son môi', 'Chăm sóc da', 'Chăm sóc cơ thể', 'Chăm sóc tóc', 'Dụng cụ', 'Nước hoa', 'Sản phẩm khác'];
         DB::table('categories')->truncate();
         foreach($categories as $value){
             DB::table('categories')->insert([
                 'name' => $value,
-                'slug' => 'danh-muc' //Str::slug($value)
+                'slug' => Str::slug($value)
             ]);
         }
     }

@@ -15,7 +15,7 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         DB::table('products')->truncate();
-        for ($i=2; $i <80 ; $i++) { 
+        for ($i=0; $i <20 ; $i++) { 
             // code...
             DB::table('products')->insert([
                 'name' => 'Iphone 12'.$i,
