@@ -36,6 +36,10 @@ Route::group([
         Route::get('/', 'CategoryController@index')->name('backend.categorie.index');
         Route::get('/{id}/product', 'CategoryController@showProducts')->name('backend.categorie.product');
     });
+    //Quản lý đơn hàng
+    Route::group(['prefix' => 'orders'], function(){
+        Route::get('/{id}/product', 'OrderController@showProducts')->name('backend.order.product');
+    });
 });
 
 Route::group([
