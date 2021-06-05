@@ -29,6 +29,7 @@ Route::group([
     Route::group(['prefix' => 'users'], function(){
         Route::get('/', 'UserController@index')->name('backend.user.index');
         Route::get('/create', 'UserController@create')->name('backend.user.create');
+        Route::get('/{id}/product', 'UserController@showProducts')->name('backend.user.product');
     });
     //Quản lý danh mục
     Route::group(['prefix' => 'categories'], function(){

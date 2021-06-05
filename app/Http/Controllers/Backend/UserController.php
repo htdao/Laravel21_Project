@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Product;
 
 class UserController extends Controller
 {
@@ -14,7 +16,10 @@ class UserController extends Controller
      */
     public function index()
     {
-         return view('backend.users.index');
+        $users = User::orderBy('updated_at', 'desc')->paginate(10);
+        return view('backend.users.index', [
+                'users'=>$users
+            ]);
     }
 
     /**
@@ -81,5 +86,13 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showProducts($id){
+        $products = User::find($id)->products;
+        return view('backend.users.product', [
+            'products' => $products
+        ]);
+        // dd($products);
     }
 }
