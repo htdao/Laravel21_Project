@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->truncate();
+        DB::table('users_info')->truncate();
         for ($i=1; $i <100 ; $i++) {
             DB::table('users')->insert([
                 'name' => 'Admin'.$i,
@@ -24,6 +25,12 @@ class UsersTableSeeder extends Seeder
                 'password' => bcrypt('123456'),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
+            ]);
+
+            DB::table('users_info')->insert([
+                'address' => 'Hanoi',
+                'phone' => '0123456789',
+                'user_id' => $i
             ]);
         }
     }

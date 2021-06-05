@@ -51,7 +51,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $products = Category::find($id)->products;
+        foreach ($products as $product){
+            
+        }
     }
 
     /**
