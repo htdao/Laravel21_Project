@@ -95,7 +95,7 @@ class ProductController extends Controller
     public function showImages($id){
         $images = Product::find($id)->images;
         return view('backend.products.image', [
-            'products' => $images
+            'images' => $images
         ]);
         // dd($images);
     }

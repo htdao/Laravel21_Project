@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
 
 class CategoryController extends Controller
 {
@@ -86,5 +87,13 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showProducts($id){
+        $products = Category::find($id)->products;
+        return view('backend.categories.product', [
+            'products' => $products
+        ]);
+        // dd($products);
     }
 }

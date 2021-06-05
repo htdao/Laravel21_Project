@@ -31,7 +31,7 @@ Images
             <div class="col-12">
                 <div class="card" style="padding-top: 15px;">
                     <div class="card-body table-responsive p-0">
-                        @foreach($products as $value)
+                        @foreach($images as $value)
                             <div class="col-4" style="height: 300px; float: left; padding-bottom:15px;">
                                 <img style="width: 100%; height: 100%;" src="{{ $value->path }}" alt="">
                             </div>

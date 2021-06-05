@@ -33,6 +33,7 @@ Route::group([
     //Quản lý danh mục
     Route::group(['prefix' => 'categories'], function(){
         Route::get('/', 'CategoryController@index')->name('backend.categorie.index');
+        Route::get('/{id}/product', 'CategoryController@showProducts')->name('backend.categorie.product');
     });
 });
 
