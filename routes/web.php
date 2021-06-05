@@ -23,6 +23,7 @@ Route::group([
     Route::group(['prefix' => 'products'], function(){
        Route::get('/', 'ProductController@index')->name('backend.product.index');
        Route::get('/create', 'ProductController@create')->name('backend.product.create');
+       Route::get('/{id}/image', 'ProductController@showImages')->name('backend.product.image');
     });
     //Quản lý người dùng
     Route::group(['prefix' => 'users'], function(){
